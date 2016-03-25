@@ -15,8 +15,10 @@ env:
 branches:
   only:
     - master
-install:
-- travis_retry script/bootstrap
+before_script:
+  - chmod a+x script/bootstrap
+  - chmod a+x script/cibuild
+  - chmod a+x script/release
 script: script/cibuild
 notifications:
   irc:
